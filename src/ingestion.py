@@ -2,6 +2,7 @@
 import yfinance as yf
 import pandas as pd
 from pathlib import Path
+from src.storage import upload_to_azure
 
 from src.validation import validate_data
 
@@ -90,6 +91,7 @@ def main():
     print(f"Total data: {len(combined)} baris")
     print(f"File tersimpan: {OUTPUT_FILE}")
 
+    upload_to_azure(OUTPUT_FILE)
 
 if __name__ == "__main__":
     main()
